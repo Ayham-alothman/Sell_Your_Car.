@@ -1,0 +1,30 @@
+{
+  "name": "server_car",
+  "version": "1.0.0",
+  "description": "this server purpose of him handel endpoient for api app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsc",
+    "start": "node dist/app.js",
+    "admin": "ts-node ./src/model/signup/admin/signup.model.superadmin.ts",
+    "test": "ts-node ./src/model/signup/user/signup.model.seller.ts"
+  },
+  "author": "AyhamAluthman",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/body-parser": "^1.19.6",
+    "@types/express": "^5.0.3",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^24.2.1",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "mongoose": "^8.17.1"
+  }
+}
