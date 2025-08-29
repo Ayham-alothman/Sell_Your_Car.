@@ -1,18 +1,25 @@
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button,StatusBar } from 'react-native';
+import { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function HomeScreen() {
   const navigation = useNavigation<any>();
+  useEffect(()=>{
+    const view=async()=>{
+      const d=await AsyncStorage.getItem(`onboarding`);
+      console.log(d);
+    }
+    view();
+
+  },[])
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screenn</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
-      />
+    <View  className="flex-1 items-center justify-center"   >
+      
+     <Text className="text-white text-2xl font-bold mt-6 bg-black ">Home Screenn</Text>
+
     </View>
   );
 }

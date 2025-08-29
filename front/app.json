@@ -1,29 +1,36 @@
 {
   "expo": {
-    "name": "learnreactnative",
-    "slug": "learnreactnative",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "name": "car",
+    "slug": "learnreactnative",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/1.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.learnreactnative",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "web": {
+      "bundler": "metro",
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "android": {
+      "package": "com.anonymous.learnreactnative"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2a1c53da-dead-4a03-999d-c8d88256a7b4"
+      }
+    },
+    "owner": "ayhamaluthman"
   }
 }

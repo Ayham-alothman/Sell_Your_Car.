@@ -15,7 +15,7 @@ const StoreSellerDb = async (name: string, phonenumber: string, password: string
     
     const role = `seller`;
     const HashPassport = bcrypt.hashSync(password, 10);
-    const newUser = new User({ name, password: HashPassport, phone: phonenumber, role: role });
+    const newUser = new User({ name, password: HashPassport, phone: phonenumber, role: role,pending:{value:1,reason:`vald_number`} });
     const DocSeller = await newUser.save({ session });
 
     const now = new Date();

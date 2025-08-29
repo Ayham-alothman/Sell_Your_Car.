@@ -3,6 +3,11 @@ import { Schema, model, Document } from 'mongoose';
 // 1. Define the Role type
 type Role = 'person' | 'viewer' | 'seller';
 
+interface IPending {
+  value: boolean;
+  reason: string;
+}
+
 // 2. Create an interface representing the document
 interface IUser extends Document {
   name: string;
@@ -11,8 +16,20 @@ interface IUser extends Document {
   support: boolean;
   role: Role;
   password: string;
+  pending:IPending
   image?: string; // optional field
 }
+
+const PendingSchema = new Schema<IPending>({
+  value: {
+    type: Boolean,
+    required: true,
+  },
+  reason: {
+    type: String,
+    required: true,
+  }
+});
 
 // 3. Create the Schema
 const userSchema = new Schema<IUser>({
@@ -44,6 +61,10 @@ const userSchema = new Schema<IUser>({
     type: String,
     required: [true, 'Password is required'],
     
+  },
+  pending:{
+    required:true,
+    type:PendingSchema
   },
   
   image: {

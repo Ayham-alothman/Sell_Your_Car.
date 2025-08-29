@@ -5,6 +5,7 @@ import bcrypt from 'bcrypt';
 
 
 
+
 const StoreAdminDb=async(name:string,password:string,permission:number)=>{
     try{
         await connect(`mongodb://localhost:27017/servercar`);
