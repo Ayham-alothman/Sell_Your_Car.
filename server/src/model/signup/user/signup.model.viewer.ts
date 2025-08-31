@@ -3,7 +3,7 @@ import { Subscription } from "../../schema/subscript.schema.model";
 import mongoose, { connect } from "mongoose";
 import bcrypt from 'bcrypt';
 
-const StoreviewerDb = async (name: string, phonenumber: string, password: string) => {
+const StoreviewerDb = async (name: string, phonenumber: string, password: string,imageUrl:string) => {
   let session;
   
   try {
@@ -15,7 +15,7 @@ const StoreviewerDb = async (name: string, phonenumber: string, password: string
     
     const role = `viewer`;
     const HashPassport = bcrypt.hashSync(password, 10);
-    const newUser = new User({ name, password: HashPassport, phone: phonenumber, role: role,pending:{value:1,reason:`vald_number`} });
+    const newUser = new User({ name, password: HashPassport, phone: phonenumber,image:imageUrl, role: role,pending:{value:1,reason:`vald_number`} });
     const Docviwer = await newUser.save({ session });
 
     const now = new Date();

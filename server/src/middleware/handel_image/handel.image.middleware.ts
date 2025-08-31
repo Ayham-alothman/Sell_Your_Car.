@@ -1,6 +1,7 @@
 import { NextFunction,Request,Response } from "express";
 import { fileTypeFromBuffer } from 'file-type';
 import sizeOf from 'image-size';
+import { StoreImageInFreeImage } from "../../functions/image/store.image.freeimage";
 
 
 const HandelImagToStore=async (req:Request,res:Response,next:NextFunction)=>{
@@ -32,6 +33,10 @@ const HandelImagToStore=async (req:Request,res:Response,next:NextFunction)=>{
           }
         
         console.log(`now end of valdition image now store in freeimage`);
+
+        const UrlImage=await StoreImageInFreeImage(file.buffer);
+        res.locals.imageUrl=UrlImage;
+        next();
         
 
     }

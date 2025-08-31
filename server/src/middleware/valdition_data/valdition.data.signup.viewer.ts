@@ -8,6 +8,7 @@ const ValditionDataSignupViewer=async (req:Request,res:Response,next:NextFunctio
         if(req.body.name.length<3){throw {state:400,message:`the name must have 3 chracters or more`}}
         if(req.body.phone){throw {state:400,message:`do't have phone for signup `}}
         if(req.body.phone.length!=9){throw {state:400,message:`there problem in formate number`}}
+        if(String(req.body.phone)[0]!=`9`){throw {state:400,message:`there problem in formate number`}}
         if(isNaN(req.body.phone)){throw {state:400,message:`the phone have char else number`}}
         if(req.body.password){throw {state:400,message:`do't have password for signup`}}
         if(req.body.password.length<8){throw {state:400,message:`the password must be 8 char or more`}}
