@@ -19,8 +19,7 @@ interface IUser extends Document {
   pending:IPending
   image?: string; // optional field
 }
-
-const PendingSchema = new Schema<IPending>({
+const PendingSchema = new Schema({
   value: {
     type: Boolean,
     required: true,
@@ -29,6 +28,8 @@ const PendingSchema = new Schema<IPending>({
     type: String,
     required: true,
   }
+}, {
+  _id: false
 });
 
 // 3. Create the Schema

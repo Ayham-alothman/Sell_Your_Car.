@@ -13,7 +13,7 @@ const SignupViewerControllar=async(req:Request,res:Response)=>{
     }
     catch(e:any){
         if(e.state &&e.message){res.status(e.state).json(e.message)}
-        if(e instanceof Error){res.status(403).json(e.message)}
+        else if(e instanceof Error){res.status(403).json(e.message)}
         else{res.status(403).json(`there issue in request or internal problem in server`)}
     }
 }

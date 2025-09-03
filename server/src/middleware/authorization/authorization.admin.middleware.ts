@@ -23,6 +23,7 @@ const AuthoriztionAdmin=async (req:Request,res:Response,next:NextFunction)=>{
 
         res.locals.dataAdmin=decoded;
         next();
+        res.status(200).end();
     }
     catch(e:any){
         return res.status(500).json({ message: e.message }); 
